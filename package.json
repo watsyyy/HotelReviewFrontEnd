@@ -27,7 +27,7 @@
     "auth0-js": "^9.10.1",
     "bootstrap": "^4.3.1",
     "core-js": "^2.4.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "ngx-pagination": "^3.2.1",
     "popper": "^1.0.1",
     "rxjs": "^6.4.0",
