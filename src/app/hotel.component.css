@@ -1,0 +1,15 @@
+.error {
+    background-color: #fff0f0; 
+}
+    agm-map{
+        height: 300px;
+       
+       
+    }
+
+    .col-sm-6 {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+    }
+    

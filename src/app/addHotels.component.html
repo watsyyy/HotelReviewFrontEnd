@@ -1,0 +1,90 @@
+<div class="container">
+        <span *ngIf = "authService.isAuthenticated()">
+            <p></p>
+    <h2>Please add a hotel</h2>
+    <form [formGroup]="hotelsForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="Name">Hotel Name</label>
+            <input type="text" id="Name" name="Name" class="form-control" formControlName="Name"
+                [ngClass]="{ 'error': isInvalid ('Name')  }"
+                [(ngModel)]="hotels.Name">
+        </div>
+        <div class="form-group">
+            <label for="Location">Location
+            </label>
+            <textarea id="Location" rows="3" name="Location" class="form-control" formControlName="Location"
+                [ngClass]="{ 'error': isInvalid('Location') }"
+                [(ngModel)]="hotels.Location"></textarea>
+        </div>
+        <div class="form-group">
+                <label for="hotels">Country
+                </label>
+                <textarea id="Country" rows="3" name="Country" class="form-control" formControlName="Country"
+                    [ngClass]="{ 'error': isInvalid('Country') }"
+                    [(ngModel)]="hotels.Country"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="HotelType">Please provide a Hotel Type
+                   </label>
+                <select id="HotelType" name="HotelType" class="form-control" formControlName="HotelType"
+                    [ngClass]="{ 'error': isInvalid ('HotelType') }"
+                    [(ngModel)]="hotels.HotelType">
+                    <option value="1">SeaSide Hotel</option>
+                    <option value="2">City Centre Hotel</option>
+                    <option value="3">Country Hotel</option>
+                    <option value="4">Luxury Hotel</option>
+                    <option value="5">Budget Hotel</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hotels">Image URL
+                </label>
+                <textarea id="Image" rows="3" name="Image" class="form-control" formControlName="Image"
+                    [ngClass]="{ 'error': isInvalid('Image') }"
+                    [(ngModel)]="hotels.Image"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="hotels">Website URL
+                </label>
+                <textarea id="Website" rows="3" name="Website" class="form-control" formControlName="Website"
+                    [ngClass]="{ 'error': isInvalid('Website') }"
+                    [(ngModel)]="hotels.Website"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="hotels">Review count
+                </label>
+                <textarea id="review_count" rows="3" name="review_count" class="form-control" formControlName="review_count"
+                    [ngClass]="{ 'error': isInvalid('review_count') }"
+                    [(ngModel)]="hotels.review_count"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="hotels">Latitude
+                </label>
+                <textarea id="latitude" rows="3" name="latitude" class="form-control" formControlName="latitude"
+                    [ngClass]="{ 'error': isInvalid('latitude') }"
+                    [(ngModel)]="hotels.latitude"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="hotels">Longitude
+                </label>
+                <textarea id="longitude" rows="3" name="longitude" class="form-control" formControlName="longitude"
+                    [ngClass]="{ 'error': isInvalid('longitude') }"
+                    [(ngModel)]="hotels.longitude"></textarea>
+            </div>
+        <span *ngIf="isIncomplete()">
+            You must complete all fields</span>
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</span>
+<span *ngIf = "!authService.isAuthenticated()">
+    <p>
+
+    </p>
+    <p></p>
+<h5 class="text-primary">
+Please log in to add a hotel
+</h5>
+</span>
+    <div>
+    </div>

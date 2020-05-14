@@ -1,0 +1,16 @@
+<!-- src/app/profile/profile.component.html -->
+<p>
+  
+</p>
+<p></p>
+<p>
+
+</p>
+      <div class="card" style="width:400px">
+        <img class="card-img-top" src="{{profile?.picture}}" class="avatar" alt="avatar">
+        <div class="card-body">
+          <h3 class="nickname">Welcome {{ profile?.nickname }}</h3>
+          <p class="card-text">View hotels before you visit!</p>
+          <a [routerLink]="['/hotels']" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>

@@ -1,0 +1,54 @@
+<div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Hotel Review</h1>
+          <p>Search for a hotel!</p>
+          <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search by name" style="width:300px" [(ngModel)]="searchTerm" />
+            </div>
+      </div>
+      
+    </div>
+<div class="container">
+
+    <p></p>
+        <div class="row">
+            <div class="col-sm-6 ">
+               
+                   
+                    <div *ngFor="let hotel of webService.hotel_list | async | hotelFilter:searchTerm | paginate: { itemsPerPage: 5, currentPage: page }">
+                            <div class="card mb-3" style="width:650px">
+                                    <img class="card-img-top" [src]="hotel.Image" alt="Card image cap" height="200px" >
+                                    <div class="card-body" [routerLink]="['/hotels', hotel._id]" style="cursor: pointer">
+                                      <h5 class="card-title">{{ hotel.Name}}</h5>
+                                      
+                                      <p class="card-text">This hotel is a {{hotel.HotelType}}</p>
+                                      <p class="card-text"> {{hotel.Website}}</p>
+                                      
+                                    <a href="{{hotel.Website}}" target="_blank"> - Go to Website</a>
+                                      <p></p>
+                                    <a [routerLink]="['/hotels', hotel._id]" style="cursor: pointer" class="btn btn-primary">Find out more</a>
+                                    </div>
+                                    <div class="card-footer">
+                                      {{ hotel.review_count }}
+                                      reviews available
+                                  </div>
+                                  </div>
+                                  <p></p>
+                                  <p></p>
+                </div>
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+            </div> <!-- col -->
+        </div> <!-- row -->
+        <!-- <div class="row">
+                <div class="col-sm-6">
+                    <button (click)="previousPage()">Previous</button>
+                </div>
+        
+                <div class="col-sm-6 text-right">
+                    <button (click)="nextPage()">Next</button>
+                </div>
+            </div> -->
+          
+            
+           
+    </div> <!-- container -->
